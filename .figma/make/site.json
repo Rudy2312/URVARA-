@@ -1,0 +1,10 @@
+{
+  "description": "FasalRaksha connects farmers with essential resources, offering real-time weather updates, crop management tips, and market insights to enhance agricultural productivity.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

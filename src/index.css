@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-fasal-emerald: #0F5E3C;
+  --color-fasal-emerald-dark: #0A3D28;
+  --color-fasal-slate: #1E293B;
+  --color-fasal-slate-light: #2D3E50;
+  --color-fasal-danger: #B3261E;
+  --color-fasal-danger-dark: #8B1A14;
+  --color-fasal-amber: #B7791F;
+  --color-fasal-success: #1F9D55;
+  --color-fasal-muted: #5B6B63;
+  --color-fasal-surface: #F4F7F5;
+  --color-fasal-border: #D1DDD9;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Simulation theme tokens */
+  --color-farm-grass: #4F8A3D;
+  --color-farm-crop: #78A94B;
+  --color-farm-deepforest: #12372A;
+  --color-farm-darkgreen: #174A38;
+  --color-farm-emerald: #3FAF7A;
+  --color-farm-mint: #A8E6CF;
+  --color-farm-cyan: #8EDDE2;
+  --color-farm-safe: #3FAF7A;
+  --color-farm-warning: #E9B949;
+  --color-farm-critical: #FF8F82;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #1E293B;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1DDD9;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5B6B63;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-scan-line {
+  animation: scan-line 3s linear infinite;
+}
+
+.animate-blink {
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.35s ease-out;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out;
+}
+
+.bb-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #0F5E3C;
+  border-radius: 4px;
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* ── 3D Farm Simulation styles ── */
+@utility glass-panel {
+  background: linear-gradient(135deg, rgba(12, 55, 43, 0.92), rgba(10, 30, 48, 0.92));
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(100, 220, 180, 0.20);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  color: #F3FFFA;
+}
+
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: 0 0 4px rgba(142, 221, 226, 0.15); }
+  50% { box-shadow: 0 0 12px rgba(142, 221, 226, 0.45); }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 4px rgba(255, 143, 130, 0.2); }
+  50% { box-shadow: 0 0 12px rgba(255, 143, 130, 0.45); }
+}
+
+@keyframes signal-flow {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes slide-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 1.5s infinite ease-in-out;
+}
+
+.animate-pulse-red {
+  animation: pulse-red 1.5s infinite ease-in-out;
+}
+
+.animate-signal-flow {
+  stroke-dasharray: 5, 5;
+  animation: signal-flow 0.8s linear infinite;
+}
+
+.animate-slide-fade {
+  animation: slide-fade 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-farm-darkgreen { color: var(--color-farm-darkgreen); }
+.text-farm-critical { color: var(--color-farm-critical); }
+.text-farm-safe { color: var(--color-farm-safe); }
+.border-farm-darkgreen\/15 { border-color: rgba(23, 74, 56, 0.15); }
